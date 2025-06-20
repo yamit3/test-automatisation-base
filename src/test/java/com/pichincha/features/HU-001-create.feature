@@ -14,6 +14,10 @@ Feature: HU-001 create super hero
     * def headers = generarHeaders()
     * headers headers
 
+  @id:0 @cleanup
+  Scenario:
+    * karate.call('util.feature@delete_all')
+
   @id:1 @create_successful @201
   Scenario: T-API-HU-001-CA01-Hero successfully created 200 - karate
     * def jsonData = read('classpath:data/create/create.json')

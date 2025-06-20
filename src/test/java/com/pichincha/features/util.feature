@@ -18,11 +18,17 @@ Feature: HU-001 crear un superhéroe
   Scenario: T-API-HU-0000-get-all get-all - karate
     When method GET
     Then status 200
-    And print response[0]
-#
-#  @id:2 @get_one @400
-#  Scenario Outline: T-API-HU-001-CA01-Hero successfully created 200 - karate
-#    * def jsonData = read('classpath:data/create/create-duplicate.json')
-#    And request jsonData
-#    When method POST
-#    Then status <resultStatus>
+    And print response
+
+  @id:2 @delete_all @201
+  Scenario: T-API-HU-0000-delete-all delete-all - karate
+    * def resp = call read('util.feature@get_all')
+    * def heroes = resp.response
+  # Loop through each hero and delete it
+    * if (heroes && heroes.length > 0){ for (i = 0; i < heroes.length; i++) karate.call('@delete_one', { id: heroes[i].id }) }
+
+  @id:3 @delete_one
+  Scenario: Delete hero by ID
+    * path id
+    * method DELETE
+    * status 204 or status 404
