@@ -1,5 +1,5 @@
 @CTP-HU-003 @chapter_evaluation
-Feature: HU-001 crear un superhéroe
+Feature: HU-003 update super hero
   Background:
     * url 'http://bp-se-test-cabcd9b246a5.herokuapp.com'
     * path 'jycalder', 'api', 'characters'
@@ -17,7 +17,7 @@ Feature: HU-001 crear un superhéroe
   @id:1 @update_successful @200
   Scenario: T-API-HU-003-CA01-Hero successfully updated 200 - karate
     * def jsonData = read('classpath:data/create/create.json')
-    * def resp = call read('util.feature@get_one')
+    * def resp = call read('util.feature@get_all')
     * def hero = resp.response[0]
     * print 'heros', hero
     And path hero.id

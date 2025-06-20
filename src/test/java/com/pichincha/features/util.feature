@@ -1,4 +1,4 @@
-@CTP-HU-000 @chapter_evaluation
+@CTP-HU-000 @utils
 Feature: HU-001 crear un superhéroe
   Background:
     * url 'http://bp-se-test-cabcd9b246a5.herokuapp.com'
@@ -14,7 +14,7 @@ Feature: HU-001 crear un superhéroe
     * def headers = generarHeaders()
     * headers headers
 
-  @id:1 @get_one @201
+  @id:1 @get_all @201
   Scenario: T-API-HU-0000-get-all get-all - karate
     When method GET
     Then status 200

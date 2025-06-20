@@ -1,5 +1,5 @@
 @CTP-HU-002 @chapter_evaluation
-Feature: HU-001 crear un superhéroe
+Feature: HU-002 list find super hero(s)
   Background:
     * url 'http://bp-se-test-cabcd9b246a5.herokuapp.com'
     * path 'jycalder', 'api', 'characters'
@@ -22,7 +22,7 @@ Feature: HU-001 crear un superhéroe
 
   @id:2 @find_successful @200
   Scenario: T-API-HU-002-CA02-Hero successfully found 200 - karate
-    * def resp = call read('util.feature@get_one')
+    * def resp = call read('util.feature@get_all')
     * def hero = resp.response[0]
     And path hero.id
     When method GET

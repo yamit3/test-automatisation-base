@@ -37,11 +37,8 @@ public class TestRunner {
         ControlsExecutionParallelAgents.featuresSegmentation();
 
         Results results = Runner.path("src/test/java/com/pichincha")
-//                .tags("@CTP-HU-001")
-//                .tags("@CTP-HU-002")
-//                .tags("@CTP-HU-003")
-//                .tags("@CTP-HU-004")
-                .tags("@find_successful")
+                .tags("~@@CTP-HU-000","@chapter_evaluation")
+//                .tags("@delete_hero")
                 .outputCucumberJson(true)
                 .parallel(1);
 
