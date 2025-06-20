@@ -1,4 +1,4 @@
-@CTP-HU-002 @chapter_evaluation
+@CTP-HU-003 @chapter_evaluation
 Feature: HU-001 crear un superhéroe
   Background:
     * url 'http://bp-se-test-cabcd9b246a5.herokuapp.com'
@@ -14,23 +14,22 @@ Feature: HU-001 crear un superhéroe
     * def headers = generarHeaders()
     * headers headers
 
-  @id:1 @list_successful @200
-  Scenario: T-API-HU-002-CA01-Hero successfully listed 200 - karate
-    When method GET
-    Then status 200
-    And match response[0] != null
-
-  @id:2 @find_successful @200
-  Scenario: T-API-HU-002-CA02-Hero successfully found 200 - karate
+  @id:1 @update_successful @200
+  Scenario: T-API-HU-003-CA01-Hero successfully updated 200 - karate
+    * def jsonData = read('classpath:data/create/create.json')
     * def resp = call read('util.feature@get_one')
     * def hero = resp.response[0]
+    * print 'heros', hero
     And path hero.id
-    When method GET
+    And request jsonData
+    When method PUT
     Then status 200
-    And match response.id == hero.id
 
-  @id:3 @find_not_found @200
-  Scenario: T-API-HU-002-CA03-Hero not found 404 - karate
-    And path '-12'
-    When method GET
+  @id:2 @update_not_found @404
+  Scenario: T-API-HU-003-CA02-Hero not found found 404 - karate
+    * def jsonData = read('classpath:data/create/create.json')
+    And request jsonData
+    And path '-123'
+    When method PUT
     Then status 404
+

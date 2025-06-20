@@ -41,7 +41,7 @@ public class TestRunner {
 //                .tags("@CTP-HU-002")
 //                .tags("@CTP-HU-003")
 //                .tags("@CTP-HU-004")
-                .tags("@CTP-HU-002")
+                .tags("@find_successful")
                 .outputCucumberJson(true)
                 .parallel(1);
 

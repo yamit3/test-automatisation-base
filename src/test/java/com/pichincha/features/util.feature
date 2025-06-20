@@ -14,10 +14,11 @@ Feature: HU-001 crear un superhéroe
     * def headers = generarHeaders()
     * headers headers
 
-  @id:1 @get_all @201
+  @id:1 @get_one @201
   Scenario: T-API-HU-0000-get-all get-all - karate
     When method GET
-    Then print response
+    Then status 200
+    And print response[0]
 #
 #  @id:2 @get_one @400
 #  Scenario Outline: T-API-HU-001-CA01-Hero successfully created 200 - karate
