@@ -38,7 +38,6 @@ public class TestRunner {
 
         Results results = Runner.path("src/test/java/com/pichincha")
                 .tags("~@@CTP-HU-000","@chapter_evaluation")
-//                .tags("@delete_hero")
                 .outputCucumberJson(true)
                 .parallel(1);
 

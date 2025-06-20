@@ -1,5 +1,5 @@
 @CTP-HU-001 @chapter_evaluation
-Feature: HU-001 crear un superhéroe
+Feature: HU-001 create super hero
   Background:
     * url 'http://bp-se-test-cabcd9b246a5.herokuapp.com'
     * path 'jycalder', 'api', 'characters'
